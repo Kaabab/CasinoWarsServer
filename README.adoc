@@ -43,7 +43,7 @@ After the fat jar is generated a dockerized env can be built and run in one comm
 docker-compose up --build
 ```
 
-Database init script are provided
+Database init scripts are provided
 ```
 sql\create_tables.sql
 ```
@@ -74,9 +74,13 @@ https:\\service_url\swagger.yaml
 == Game progress
 
 Game sessions are created using POST on ```game```
+
 The players can place bets on any game session using ```/game/bet``` endpoints
+
 When placing a bet, the bet amount is deducted from the player token count, and a bet result is returned.
+
 If the bet results in a war status, the player has to invoke the bet again with either ```0``` bet or ```same token value``` as previous bet in order to resolve the war status
+
 When the deck runs out of cards, it gets expanded with a new shuffled deck
 
 == Help

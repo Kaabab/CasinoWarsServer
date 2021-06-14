@@ -24,12 +24,7 @@
     <autoscroll-to-editor value="false" />
     <autoscroll-from-editor value="true" />
     <show-object-properties value="true" />
-    <loaded-nodes>
-      <connection connection-id="8e30e392-6004-4447-8252-8254f2fdc26d">
-        <schema name="pg_catalog" object-types="table" />
-        <schema name="public" object-types="table, view, sequence, function, constraint, index, column, dataset trigger" />
-      </connection>
-    </loaded-nodes>
+    <loaded-nodes />
   </component>
   <component name="DBNavigator.Project.DatabaseConsoleManager">
     <connection id="8e30e392-6004-4447-8252-8254f2fdc26d">
@@ -42,10 +37,7 @@ create table player(id varchar(36) not null primary key, player_name varchar(24)
     </connection>
   </component>
   <component name="DBNavigator.Project.DatabaseFileManager">
-    <open-files>
-      <object connection-id="8e30e392-6004-4447-8252-8254f2fdc26d" object-ref="schemas/public/tables/player" />
-      <object connection-id="8e30e392-6004-4447-8252-8254f2fdc26d" object-ref="schemas/public/tables/game" />
-    </open-files>
+    <open-files />
   </component>
   <component name="DBNavigator.Project.DatabaseSessionManager">
     <connection id="8e30e392-6004-4447-8252-8254f2fdc26d" />
