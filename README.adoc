@@ -1,0 +1,89 @@
+= Server
+
+image:https://img.shields.io/badge/vert.x-4.1.0-purple.svg[link="https://vertx.io"]
+
+The proposed solution stack :
+
+ * https://vertx.io/[vertx] : Highly versatile and flexible asynchronous and reactive framework
+ * Kotlin : JVM Based language, offering efficient syntax and frameworks as well as full interoperability with java
+ * https://github.com/google/guice[Guice] : Google's java Dependency Injection framework
+ * https://www.postgresql.org/[PostgreSQL] : SQL Database
+ * JUnit5
+ * https://site.mockito.org/[Mockito] : Mocking framework with added kotlin specific plugins
+
+The application stub was generated using http://start.vertx.io
+
+
+== Building
+
+To package your application:
+
+```
+./gradlew clean shadowJar
+```
+
+The shadow generates a full api jar located at :
+
+```
+build\libs\CasinoWarsServer-1.0.0-SNAPSHOT-fat.jar
+```
+
+The fat jar is required to build the docker container
+
+Alternatively the application can be run directly :
+
+```
+./gradlew clean run
+```
+
+== Docker build
+
+After the fat jar is generated a dockerized env can be built and run in one command line.
+```
+docker-compose up --build
+```
+
+Database init script are provided
+```
+sql\create_tables.sql
+```
+
+== Generating clients
+
+Open API clients for various languages can be generated using OpenAPI generator and can be used as test clients
+Example :
+
+```
+java -jar openapi-generator-cli-5.2.0-20210606.144210-100.jar generate -g kotlin-vertx -i swagger.yaml --additional-properties=packageName=com.pokerwars.apiclient,artifactId=poker-wars-client -o C:\tmp\kotlin-vertx
+```
+
+== Open API Test client
+
+The service expose a swagger open api client under \swagger folder pre-configured with the service deployed API
+
+It can be accessed at url :
+```
+https:\\service_url\swagger
+```
+
+The service api can is served as static file at
+```
+https:\\service_url\swagger.yaml
+```
+
+== Game progress
+
+Game sessions are created using POST on ```game```
+The players can place bets on any game session using ```/game/bet``` endpoints
+When placing a bet, the bet amount is deducted from the player token count, and a bet result is returned.
+If the bet results in a war status, the player has to invoke the bet again with either ```0``` bet or ```same token value``` as previous bet in order to resolve the war status
+When the deck runs out of cards, it gets expanded with a new shuffled deck
+
+== Help
+
+* https://vertx.io/docs/[Vert.x Documentation]
+* https://stackoverflow.com/questions/tagged/vert.x?sort=newest&pageSize=15[Vert.x Stack Overflow]
+* https://groups.google.com/forum/?fromgroups#!forum/vertx[Vert.x User Group]
+* https://gitter.im/eclipse-vertx/vertx-users[Vert.x Gitter]
+
+
