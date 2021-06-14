@@ -1,13 +1,6 @@
 version: '3'
 
 services:
-  casinowars_server:
-    build: .
-    ports:
-      - "8080:8080"
-    depends_on:
-      - postgresql
-
   postgresql:
     image: postgres:alpine
     ports:
@@ -16,3 +9,10 @@ services:
       POSTGRES_USER: casino
       POSTGRES_PASSWORD: casino
       POSTGRES_DB: casinowars
+
+  casinowars_server:
+    build: .
+    ports:
+      - "8080:8080"
+    depends_on:
+      - postgresql

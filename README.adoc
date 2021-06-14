@@ -16,7 +16,17 @@ The application stub was generated using http://start.vertx.io
 
 == Building
 
-To package your application:
+Configure the server :
+```
+server-config.yaml
+```
+
+Configure the database connection :
+```
+db-config.yaml
+```
+
+To package the application:
 
 ```
 ./gradlew clean shadowJar

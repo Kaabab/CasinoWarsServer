@@ -1,5 +1,5 @@
 #Db specific configuration values
-host: localhost
+host: postgresql
 port: 5432
 database: casinowars
 username: casino

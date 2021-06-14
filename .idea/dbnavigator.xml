@@ -24,12 +24,17 @@
     <autoscroll-to-editor value="false" />
     <autoscroll-from-editor value="true" />
     <show-object-properties value="true" />
-    <loaded-nodes />
+    <loaded-nodes>
+      <connection connection-id="8e30e392-6004-4447-8252-8254f2fdc26d">
+        <schema name="pg_catalog" object-types="table" />
+        <schema name="public" object-types="table, view, sequence, function, constraint, index, column, dataset trigger" />
+      </connection>
+    </loaded-nodes>
   </component>
   <component name="DBNavigator.Project.DatabaseConsoleManager">
     <connection id="8e30e392-6004-4447-8252-8254f2fdc26d">
-      <console name="Connection" type="STANDARD" schema="public" session="Main"><![CDATA[drop table game;
-drop table player;
+      <console name="Connection" type="STANDARD" schema="public" session="Main"><![CDATA[drop table if exists public.game;
+drop table if exists public.player;
 
 create table game(id varchar(36) not null primary key, player_id varchar(36) not null,  deck integer[], top_card_index integer, table_tokens integer);
 create table player(id varchar(36) not null primary key, player_name varchar(24) not null, token_count integer, unique(player_name));]]></console>
